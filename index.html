@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Rasmalai ❤️</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0; min-height:100vh; overflow-x:hidden;
+  font-family:Georgia,serif;
+  background:linear-gradient(135deg,#ffe0eb,#f8c5dc,#fce4ec);
+  color:#8b2450;text-align:center;
+}
+.container{padding:35px 18px;max-width:600px;margin:auto}
+h1{font-size:32px;margin-bottom:8px}
+.subtitle{font-size:17px}
+.gift-area{margin:55px auto 25px;position:relative;height:210px}
+.gift{
+  position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:145px;height:105px;background:#e83e72;border-radius:8px;
+  box-shadow:0 10px 20px #b94b7460;cursor:pointer;
+}
+.gift:before{
+  content:"";position:absolute;left:58px;top:0;width:28px;height:105px;
+  background:#ffd36e;
+}
+.lid{
+  position:absolute;bottom:95px;left:50%;transform:translateX(-50%);
+  width:165px;height:28px;background:#d72f66;border-radius:7px;
+  transition:.7s;z-index:3;
+}
+.lid:before{
+  content:"";position:absolute;left:68px;width:28px;height:28px;
+  background:#ffd36e;
+}
+.bow{position:absolute;bottom:120px;left:50%;transform:translateX(-50%);
+  font-size:40px;z-index:4}
+.panda{
+  position:absolute;left:50%;bottom:35px;transform:translate(-50%,30px) scale(.1);
+  font-size:90px;opacity:0;transition:1s;z-index:2;
+}
+.open .panda{opacity:1;transform:translate(-50%,-100px) scale(1)}
+.open .lid{transform:translateX(-50%) translateY(-100px) rotate(-15deg)}
+.open .bow{opacity:0;transition:.3s}
+button{
+  border:0;background:#d93670;color:white;padding:14px 25px;
+  border-radius:30px;font-size:17px;box-shadow:0 5px 12px #b94b7460;
+}
+.message{
+  display:none;background:#ffffffb8;border-radius:20px;
+  padding:22px;margin-top:25px;line-height:1.8;
+  box-shadow:0 5px 20px #c65b8240;
+}
+.show{display:block;animation:fade 1s}
+.rose{font-size:48px;margin:10px}
+.heart{font-size:22px;animation:pulse 1s infinite}
+@keyframes fade{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{50%{transform:scale(1.25)}}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <div class="heart">💗 💗 💗</div>
+  <h1>Meri Rasmalai ❤️</h1>
+  <p class="subtitle">Aapke liye ek chhota sa surprise hai...</p>
+
+  <div class="gift-area" id="giftArea">
+    <div class="panda">🐼</div>
+    <div class="bow">🎀</div>
+    <div class="lid"></div>
+    <div class="gift"></div>
+  </div>
+
+  <button onclick="openGift()">🎁 Gift kholo</button>
+
+  <div class="message" id="message">
+    <h2>Surpriseee! 🥹❤️</h2>
+    <div class="rose">🌹</div>
+    <h2>I Love You Zuveriya ❤️</h2>
+    <p>Aapke liye aapke betu ne shayari likhi hai... 💌</p>
+    <p>
+      Aapki muskurahat meri jaan ban gayi,<br>
+      Aapki khushi meri pehchaan ban gayi.<br>
+      Pata nahi kaise hua ye sab,<br>
+      Aap meri duniya ka sabse haseen ehsaas ban gayi. ❤️
+    </p>
+    <h3>Hamesha khush rehna meri Rasmalai 🐼</h3>
+    <p>— Aapka Betu ❤️</p>
+  </div>
+</div>
+
+<script>
+function openGift(){
+  document.getElementById("giftArea").classList.add("open");
+  document.getElementById("message").classList.add("show");
+}
+</script>
+</body>
+</html>
