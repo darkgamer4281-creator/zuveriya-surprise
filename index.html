@@ -96,6 +96,9 @@ button{
 function openGift(){
   document.getElementById("giftArea").classList.add("open");
   document.getElementById("message").classList.add("show");
+  const music = new Audio("song.mp3");
+music.loop = true;
+music.play();
 }
 </script>
 </body>
