@@ -58,6 +58,17 @@ button{
 .heart{font-size:22px;animation:pulse 1s infinite}
 @keyframes fade{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{50%{transform:scale(1.25)}}
+  .heart-balloon{
+  position:fixed;bottom:-55px;z-index:20;pointer-events:none;
+  font-size:30px;line-height:1;
+  animation:heartBalloonFloat 7s linear forwards;
+}
+@keyframes heartBalloonFloat{
+  0%{transform:translateY(0) rotate(-8deg);opacity:0}
+  12%{opacity:1}
+  50%{transform:translateY(-55vh) rotate(9deg)}
+  100%{transform:translateY(-115vh) rotate(-8deg);opacity:0}
+    }
 </style>
 </head>
 
@@ -93,9 +104,35 @@ button{
 </div>
 
 <script>
+  let heartBalloonTimer = null;
+
+function releaseHeartBalloons(){
+  if(heartBalloonTimer) return;
+  const hearts = ["💗","❤️","💖","💕"];
+
+  function launchHeart(side){
+    const balloon = document.createElement("span");
+    balloon.className = "heart-balloon";
+    balloon.textContent = hearts[Math.floor(Math.random()*hearts.length)];
+    balloon.style.left = side === "left"
+      ? (3 + Math.random()*9) + "vw"
+      : (88 + Math.random()*8) + "vw";
+    balloon.style.animationDuration = (6 + Math.random()*3) + "s";
+    document.body.appendChild(balloon);
+    balloon.addEventListener("animationend", () => balloon.remove(), {once:true});
+  }
+
+  launchHeart("left");
+  launchHeart("right");
+  heartBalloonTimer = setInterval(() => {
+    launchHeart("left");
+    launchHeart("right");
+  }, 650);
+  }
 function openGift(){
   document.getElementById("giftArea").classList.add("open");
   document.getElementById("message").classList.add("show");
+  releaseHeartBalloons();
   const music = new Audio("song.mp3");
 music.loop = true;
 music.play();
